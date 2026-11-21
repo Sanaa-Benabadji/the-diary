@@ -1,0 +1,329 @@
+/* ============ Kahin's world: the front page's style (plaid, cream patches, pink stitches) ============ */
+.view-world { display: block; position: relative; padding: 80px 16px 170px; animation: world-in .6s ease both; }
+.view-world[hidden] { display: none; }
+@keyframes world-in { from { opacity: 0; } }
+.kw-back { position: fixed; left: max(16px, env(safe-area-inset-left)); top: 16px; z-index: 30; }
+
+.kw-grid { display: grid; grid-template-columns: minmax(300px, 1fr) minmax(320px, 1.2fr); gap: 30px; max-width: 1080px; margin: 0 auto; align-items: start; }
+.kw-hero { position: sticky; top: 76px; width: 100%; padding: 40px 18px 22px; }
+.kw-stage { position: relative; height: clamp(340px, 52vh, 430px); }
+/* Kahin at the top in the middle; the two ponies small in the bottom corners, below and beside her,
+   never in front of her face */
+.kw-girl { position: absolute; left: 50%; top: 3%; width: 50%; max-width: 220px; transform: translateX(-50%); z-index: 2; }
+.kw-girl img {
+  display: block; width: 100%; height: auto;
+  filter: drop-shadow(0 5px 0 rgba(255, 255, 255, .9)) drop-shadow(0 12px 14px rgba(110, 60, 70, .25));
+  animation: bob 2.7s ease-in-out infinite; transition: transform .35s cubic-bezier(.2, 1.6, .4, 1);
+}
+.kw-girl:hover img { transform: scale(1.05) rotate(-3deg); }
+.kw-girl.is-hop img { animation: k-hop .6s cubic-bezier(.3, 1.5, .5, 1); }
+.kw-pony { position: absolute; bottom: 0; width: 21%; max-width: 96px; z-index: 3; transform-origin: 50% 100%; }
+.kw-pony img { display: block; width: 100%; height: auto; filter: drop-shadow(0 6px 6px rgba(110, 60, 70, .22)); transition: transform .3s cubic-bezier(.2, 1.6, .4, 1); }
+.kw-left { left: 2%; animation: pony-idle 2.4s ease-in-out infinite; }
+.kw-right { right: 2%; animation: pony-idle 2.2s ease-in-out -1s infinite; }
+.kw-pony:hover img { transform: scale(1.08); }
+.kw-pony.is-hop { animation: k-hop .6s cubic-bezier(.3, 1.5, .5, 1); }
+@keyframes pony-idle { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg) translateY(-4px); } }
+@keyframes k-hop { 35% { transform: translateY(-24px) scale(1.04, .96); } 65% { transform: translateY(0) scale(1.06, .92); } }
+.kw-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.kw-tags span {
+  display: inline-flex; align-items: center; padding: 4px 14px; border-radius: 999px;
+  background: var(--rose); color: #fff; font-weight: 600; font-size: .9rem; box-shadow: 0 3px 0 var(--rose-deep);
+}
+.kw-love { margin-top: 12px; font-size: clamp(2rem, 6vw, 2.8rem); }
+.amber-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #ffd27a, #d98a1c 70%, #9a5a10); box-shadow: 0 0 0 2px #fff, 0 0 8px rgba(217, 138, 28, .7); margin-right: 6px; vertical-align: -1px; }
+.kw-girl:focus-visible, .kw-pony:focus-visible, .fav:focus-visible, .chip-btn:focus-visible { outline: 3px solid var(--rose-deep); outline-offset: 4px; border-radius: 14px; }
+
+/* info cards = little cream patches */
+.kw-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.kc {
+  position: relative; padding: 20px 20px 20px; border-radius: 22px;
+  background-color: var(--patch);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(160, 110, 110, .035) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(160, 110, 110, .03) 0 1px, transparent 1px 4px);
+  box-shadow: 0 14px 34px rgba(120, 60, 75, .2), 0 2px 0 rgba(255, 255, 255, .9) inset;
+  animation: card-up .6s cubic-bezier(.2, 1.3, .4, 1) both;
+}
+.kc:nth-child(2) { animation-delay: .08s; } .kc:nth-child(3) { animation-delay: .16s; } .kc:nth-child(4) { animation-delay: .24s; }
+.kc:nth-child(5) { animation-delay: .32s; } .kc:nth-child(6) { animation-delay: .4s; }
+@keyframes card-up { from { opacity: 0; transform: translateY(24px); } }
+.kc::before { content: ""; position: absolute; inset: 8px; border-radius: 15px; border: 2px dashed var(--stitch); pointer-events: none; }
+.kc-wide { grid-column: 1 / -1; }
+.kc-title { font-family: var(--script); font-weight: 400; font-size: 2.1rem; line-height: 1; color: var(--cocoa); margin-bottom: 10px; }
+.kc-title::after { content: " ♡"; font-family: var(--font); font-size: .45em; color: var(--rose-deep); vertical-align: middle; }
+.kc-list { display: grid; gap: 8px; }
+.kc-list div { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; border-bottom: 1.5px dotted #efc3cd; padding-bottom: 6px; }
+.kc-list dt { font-size: .78rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--cocoa-soft); }
+.kc-list dd { font-weight: 600; color: var(--cocoa); text-align: right; }
+.bday-date { font-size: 2.2rem; font-weight: 700; color: var(--cocoa); line-height: 1.1; }
+.bday-note { margin-top: 6px; color: var(--cocoa-soft); }
+.bday-count { display: inline-block; margin-top: 10px; padding: 4px 12px; border-radius: 999px; background: #fde6ec; border: 1.5px solid var(--rose); color: var(--rose-deep); font-weight: 600; font-size: .9rem; }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li, .chip-btn { padding: 6px 12px; border-radius: 999px; background: #fde6ec; border: 1.5px solid #f2bccb; color: var(--cocoa); font-weight: 600; font-size: .95rem; }
+.chips li:has(.chip-btn) { padding: 0; border: 0; background: none; }
+.chip-btn { cursor: pointer; }
+.ball { display: inline-block; }
+.ball.is-bounce { animation: ball .9s cubic-bezier(.3, 0, .6, 1); }
+@keyframes ball { 20% { transform: translateY(-26px) rotate(120deg); } 40% { transform: translateY(0) rotate(200deg); } 60% { transform: translateY(-12px) rotate(280deg); } 80% { transform: translateY(0) rotate(340deg); } 90% { transform: translateY(-4px); } }
+
+.fav-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; align-items: end; }
+.fav { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.fav-pic { display: flex; align-items: flex-end; justify-content: center; width: 100%; height: clamp(96px, 13vw, 130px); }
+.fav-pic > img { display: block; height: 100%; width: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 8px 10px rgba(110, 60, 70, .2)); transition: transform .3s cubic-bezier(.2, 1.6, .4, 1); }
+.fav { min-width: 0; }
+button.fav:hover .fav-pic > img { transform: scale(1.08) rotate(-4deg); }
+.fav.is-hop .fav-pic { animation: k-hop .6s cubic-bezier(.3, 1.5, .5, 1); }
+.fav-name { font-weight: 700; color: var(--cocoa); font-size: .95rem; text-align: center; line-height: 1.15; }
+.fav-name small { display: block; font-weight: 500; font-size: .75rem; color: var(--cocoa-soft); }
+.book {
+  display: grid; place-items: center; width: clamp(66px, 9vw, 86px); height: clamp(90px, 12.5vw, 120px);
+  border-radius: 4px 10px 10px 4px; background: linear-gradient(90deg, #2d3b3a 0 12%, #3e5654 12% 100%);
+  box-shadow: inset 4px 0 0 rgba(0, 0, 0, .25), 0 10px 14px rgba(40, 40, 30, .3);
+  transform: rotate(-4deg);
+}
+.book span { color: #f3e6c8; font-weight: 700; font-size: .9rem; letter-spacing: .12em; text-align: center; line-height: 1.1; border-top: 1.5px solid #f3e6c8; border-bottom: 1.5px solid #f3e6c8; padding: 4px 6px; }
+/* the little Blue Lock book (real cover, 3D tilt, page edges) */
+.mini-book {
+  position: relative; display: block; width: clamp(66px, 9vw, 86px); aspect-ratio: 513 / 767;
+  transform: perspective(500px) rotateY(-16deg) rotate(3deg); transform-origin: 0 50%;
+  transition: transform .35s cubic-bezier(.2, 1.4, .4, 1);
+  box-shadow: 5px 0 0 -1px #f4efe6, 7px 1px 0 -1px #e2dace, 12px 12px 16px rgba(30, 40, 80, .32);
+  border-radius: 2px 5px 5px 2px;
+}
+.mini-book img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 2px 5px 5px 2px; }
+.mini-book::after { content: ""; position: absolute; inset: 0 auto 0 0; width: 10%; background: linear-gradient(90deg, rgba(0, 0, 0, .35), rgba(255, 255, 255, .15) 60%, transparent); border-radius: 2px 0 0 2px; }
+.fav[data-book]:hover .mini-book { transform: perspective(500px) rotateY(-34deg) rotate(0) translateY(-6px); }
+.mini-nh img { object-position: 72% center; }
+.mini-nh b {
+  position: absolute; left: 0; right: 0; top: 7%; text-align: center;
+  font-weight: 700; font-size: clamp(.62rem, 1.4vw, .8rem); letter-spacing: .12em; color: #fff4dc;
+  text-shadow: 0 1px 0 #2a2230, 0 0 6px rgba(20, 16, 30, .9);
+}
+.kc-hint { margin-top: 10px; text-align: center; font-size: .85rem; color: var(--cocoa-soft); }
+
+.cat-row { display: flex; align-items: flex-start; justify-content: center; gap: clamp(14px, 4vw, 30px); flex-wrap: wrap; padding: 10px 0 4px; }
+/* Shasha's two real photos as taped polaroids */
+.polaroid {
+  position: relative; display: block; width: min(210px, 42%); padding: 9px 9px 0; background: #fff;
+  box-shadow: 0 12px 24px rgba(110, 60, 70, .22); transform: rotate(-4deg);
+  transition: transform .35s cubic-bezier(.2, 1.5, .4, 1), box-shadow .35s ease;
+}
+.polaroid:nth-child(2) { transform: rotate(4deg); margin-top: 16px; }
+.polaroid img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+.polaroid .cap { display: block; padding: 6px 0 9px; text-align: center; font-family: var(--script); font-size: 1.35rem; line-height: 1.1; color: var(--cocoa); }
+.polaroid .tape {
+  position: absolute; top: -10px; left: 50%; width: 70px; height: 22px; z-index: 2; transform: translateX(-50%) rotate(-4deg);
+  background: repeating-linear-gradient(45deg, rgba(247, 201, 212, .85) 0 6px, rgba(255, 240, 244, .85) 6px 12px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+}
+.polaroid:hover, .polaroid:focus-visible { transform: rotate(0) translateY(-6px) scale(1.04); box-shadow: 0 18px 32px rgba(110, 60, 70, .28), 0 0 0 3px var(--rose); }
+.polaroid.is-hop { animation: k-hop .6s cubic-bezier(.3, 1.5, .5, 1); }
+.polaroid:focus-visible { outline: none; }
+
+/* small bubble just above the Identity V character */
+.love-pop {
+  position: fixed; z-index: 90; pointer-events: none; white-space: nowrap;
+  padding: 4px 13px 6px; border-radius: 999px;
+  background: #fff; border: 2px solid var(--rose); box-shadow: 0 6px 14px rgba(150, 60, 80, .22);
+  font-family: var(--script); font-size: 1.45rem; line-height: 1.1; color: #c0392b;
+}
+.k-particle { position: fixed; z-index: 85; left: 0; top: 0; pointer-events: none; line-height: 1; }
+
+/* ============ the Blue Lock book, opened ============ */
+.bk { position: fixed; inset: 0; z-index: 88; display: grid; place-items: center; padding: 16px; }
+.bk[hidden] { display: none; }
+.bk-backdrop { position: absolute; inset: 0; background: rgba(60, 30, 40, .55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); animation: fade-in .3s ease; }
+@keyframes fade-in { from { opacity: 0; } }
+.bk-wrap { position: relative; display: flex; flex-direction: column; align-items: center; gap: 14px; animation: book-in .45s cubic-bezier(.2, 1.3, .4, 1); }
+@keyframes book-in { from { opacity: 0; transform: translateY(20px) scale(.9); } }
+.bk-book {
+  --w: min(86vw, 440px, calc((100vh - 110px) * 2 / 3));
+  position: relative; width: var(--w); aspect-ratio: 2 / 3; touch-action: pan-y;
+}
+@supports (height: 100dvh) { .bk-book { --w: min(86vw, 440px, calc((100dvh - 110px) * 2 / 3)); } }
+/* one page shows at a time, whole and flat; a page only moves while it is being turned */
+.bk-page {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 10px;
+  background: #fff; border-radius: 4px 12px 12px 4px; overflow: hidden;
+  box-shadow: inset 10px 0 18px -10px rgba(0, 0, 0, .25), 0 18px 40px rgba(0, 0, 0, .35);
+  transform-origin: 0 50%; visibility: hidden; cursor: pointer;
+}
+.bk-page:first-child { padding: 0; }
+.bk-page img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.bk-page:first-child img { object-fit: cover; }
+.bk-cover img[src*="nh-cover"] { object-position: 72% center; }
+/* a title printed on a cover (No Home) */
+.bk-title {
+  position: absolute; left: 0; right: 0; top: 0; padding: 7% 8% 18%; text-align: center; pointer-events: none;
+  background: linear-gradient(180deg, rgba(18, 20, 36, .78) 0%, rgba(18, 20, 36, .45) 60%, rgba(18, 20, 36, 0) 100%);
+}
+.bk-title b {
+  display: block; font-family: var(--font); font-weight: 700; font-size: clamp(2.2rem, 9vw, 3.6rem); line-height: 1;
+  letter-spacing: .14em; color: #fff4dc; text-shadow: 0 3px 0 #2a2230, 0 0 18px rgba(255, 214, 140, .45);
+}
+.bk-title span {
+  display: inline-block; margin-top: 10px; padding: 3px 14px; border: 1.5px solid rgba(255, 244, 220, .8); border-radius: 999px;
+  font-size: .85rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: #fff4dc;
+}
+.bk-page.is-on { visibility: visible; z-index: 1; }
+.bk-page.is-leaving { visibility: visible; z-index: 2; animation: page-out .5s ease-in forwards; }
+.bk-page.is-coming { visibility: visible; z-index: 2; animation: page-in .5s ease-out forwards; }
+@keyframes page-out { from { transform: perspective(1400px) rotateY(0); } to { transform: perspective(1400px) rotateY(-90deg); filter: brightness(.75); } }
+@keyframes page-in { from { transform: perspective(1400px) rotateY(-90deg); filter: brightness(.75); } to { transform: perspective(1400px) rotateY(0); } }
+.bk-end { background: var(--patch); text-align: center; align-content: center; }
+.bk-end p { font-family: var(--script); font-size: 2.4rem; color: var(--cocoa); }
+.bk-end .bk-end-sub { font-family: var(--font); font-size: 1rem; color: var(--cocoa-soft); }
+.bk-bar { display: flex; align-items: center; gap: 12px; padding: 6px 8px; border-radius: 999px; background: var(--patch); box-shadow: 0 10px 24px rgba(0, 0, 0, .25); }
+.bk-btn { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--rose); color: #fff; font-size: 1.5rem; line-height: 1; font-weight: 600; box-shadow: 0 3px 0 var(--rose-deep); }
+.bk-btn:disabled { opacity: .4; cursor: default; }
+.bk-btn:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.bk-close { background: var(--cocoa); box-shadow: 0 3px 0 #4a2f2d; }
+.bk-count { min-width: 56px; text-align: center; font-weight: 600; color: var(--cocoa); }
+
+@media (max-width: 860px) {
+  .kw-grid { grid-template-columns: 1fr; }
+  .kw-hero { position: relative; top: 0; max-width: 520px; margin: 0 auto; }
+}
+@media (max-width: 520px) {
+  .kw-cards { grid-template-columns: 1fr; }
+  .fav-row { grid-template-columns: repeat(2, 1fr); row-gap: 18px; }
+  .view-world { padding-top: 76px; }
+  .kc-title { font-size: 1.9rem; }
+  .kw-stage { height: 280px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .kw-girl img, .kw-pony { animation: none !important; }
+  .bk-page.is-leaving, .bk-page.is-coming { animation-duration: .01s; }
+}
+
+/* birthday countdown: four little stitched tiles */
+.cd { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 12px; }
+.cd[hidden] { display: none; }
+.cd-box {
+  position: relative; padding: 8px 2px 7px; text-align: center; border-radius: 12px;
+  background: #fde6ec; box-shadow: 0 3px 0 #f2bccb;
+}
+.cd-box::before { content: ""; position: absolute; inset: 3px; border-radius: 9px; border: 1.5px dashed rgba(201, 127, 147, .55); pointer-events: none; }
+.cd-box b { display: block; font-size: 1.45rem; font-weight: 700; line-height: 1.05; color: var(--cocoa); font-variant-numeric: tabular-nums; }
+.cd-box span { display: block; margin-top: 2px; font-size: .68rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--rose-deep); }
+
+/* Shasha's info: name / birthday / age on one side, her birthday countdown on the other */
+.cat-info { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; align-items: center; margin-bottom: 14px; }
+.cd-label { font-family: var(--script); font-size: 1.45rem; line-height: 1.1; color: var(--cocoa); text-align: center; }
+.cd-label[hidden] { display: none; }
+.cat-info .cd { margin-top: 6px; }
+.cat-info .bday-count { display: block; text-align: center; }
+.cat-info .bday-count[hidden] { display: none; }
+@media (max-width: 640px) { .cat-info { grid-template-columns: 1fr; } }
+
+
+/* the Yaz letter (ⵣ) next to "Kabyle": same colour as the text around it (white on the pink tag, cocoa in "about me") */
+.yaz { display: inline-block; color: currentColor; }
+.yaz-tag { width: 10px; height: 15px; margin-right: 6px; vertical-align: -2px; }
+.yaz-inline { width: 11px; height: 16px; margin-right: 6px; vertical-align: -2px; }
+
+/* languages lined up in one row */
+.langs-row { justify-content: space-around; }
+.langs-row li { min-width: 92px; text-align: center; }
+@media (max-width: 520px) {
+  .langs-row { display: grid; grid-template-columns: repeat(var(--n, 5), 1fr); gap: 5px; }
+  .langs-row li { min-width: 0; padding: 6px 2px; font-size: .76rem; }
+}
+
+/* ============ Rita's world extras ============ */
+.brown-dot, .sky-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; box-shadow: 0 0 0 2px #fff, 0 0 6px rgba(110, 60, 70, .3); }
+.brown-dot { background: radial-gradient(circle at 35% 35%, #b57a52, #6b3e22 70%, #43240f); }
+.sky-dot { background: radial-gradient(circle at 35% 35%, #d8f1ff, #87ceeb 60%, #5fb3dc); }
+/* favourites drawn as little stitched pink circles (photography, movies) */
+.fav-icon {
+  position: relative; display: grid; place-items: center;
+  width: clamp(78px, 11vw, 104px); aspect-ratio: 1; border-radius: 50%;
+  background: #fde6ec; box-shadow: 0 4px 0 #f2bccb, 0 10px 16px rgba(110, 60, 70, .18);
+  font-size: clamp(2.2rem, 5vw, 3rem); line-height: 1;
+  transition: transform .3s cubic-bezier(.2, 1.6, .4, 1);
+}
+.fav-icon::before { content: ""; position: absolute; inset: 5px; border-radius: 50%; border: 2px dashed rgba(201, 127, 147, .6); }
+button.fav:hover .fav-icon { transform: scale(1.08) rotate(-6deg); }
+.fav-row-3 { grid-template-columns: repeat(3, 1fr); }
+.fav-name { overflow-wrap: anywhere; }
+/* the long manhwa title on the little cover and on the opened cover */
+.mini-hm b {
+  position: absolute; left: 4%; right: 4%; bottom: 6%; text-align: center;
+  font-weight: 700; font-size: clamp(.42rem, 1vw, .55rem); line-height: 1.15; letter-spacing: .04em; text-transform: uppercase; color: #fff4dc;
+  text-shadow: 0 1px 0 #2a2230, 0 0 5px rgba(20, 16, 30, .95);
+}
+.bk-title-small { top: auto; bottom: 0; padding: 22% 8% 8%; background: linear-gradient(0deg, rgba(18, 20, 36, .8) 0%, rgba(18, 20, 36, .45) 60%, rgba(18, 20, 36, 0) 100%); }
+.bk-title-small b { font-size: clamp(1.3rem, 5.4vw, 2rem); letter-spacing: .04em; line-height: 1.15; text-transform: uppercase; }
+/* camera flash */
+.cam-flash { position: fixed; inset: 0; z-index: 95; background: #fff; pointer-events: none; }
+@media (max-width: 520px) { .fav-row-3 { grid-template-columns: repeat(3, 1fr); column-gap: 8px; } .fav-row-3 .fav-name { font-size: .8rem; } }
+/* Rita's (old) face picture is taller than Kahin's (264x391 vs 419x420): 38% is the size the user picked for it */
+.kw-girl-tall { width: 38%; max-width: 166px; }
+/* Rita's ponies, both looking at her: jumping Pinkie (435x459) left, Pinkie with the cake (560x356) right,
+   at the same height (about as tall as the other worlds' ponies) */
+#rworld .kw-left { width: 24%; max-width: 112px; }
+#rworld .kw-right { width: calc(24% * 560 / 356 * 459 / 435); max-width: calc(112px * 560 / 356 * 459 / 435); }
+
+/* Rita's photo and movie poster: exactly the size of the little books in Kahin's world (same width, same 513:767
+   shape), no white frame, rounded corners with a pink border. Her row keeps the same height as Kahin's */
+.mini-polaroid, .mini-poster {
+  display: block; width: clamp(66px, 9vw, 86px); aspect-ratio: 513 / 767; overflow: hidden; border-radius: 6px;
+  border: 2px solid var(--rose);
+  box-shadow: 0 10px 14px rgba(110, 60, 70, .28);
+  transition: transform .35s cubic-bezier(.2, 1.5, .4, 1), box-shadow .35s ease;
+}
+.mini-polaroid { transform: rotate(-3deg); }
+.mini-poster { transform: rotate(3deg); }
+.mini-polaroid img, .mini-poster img { display: block; width: 100%; height: 100%; object-fit: cover; }
+button.fav:hover .mini-polaroid, button.fav:hover .mini-poster { transform: rotate(0) translateY(-6px); box-shadow: 0 14px 18px rgba(110, 60, 70, .32); }
+
+/* Rita's cats (Snowy & Simba): the same taped polaroids as Shasha in Kahin's world, but square, two by two */
+.polaroid-square img { aspect-ratio: 1; }
+.cat-row-4 .polaroid:nth-child(3) { transform: rotate(-4deg); }
+.cat-row-4 .polaroid:nth-child(4) { transform: rotate(4deg); margin-top: 16px; }
+.cat-row-4 .polaroid:hover, .cat-row-4 .polaroid:focus-visible { transform: rotate(0) translateY(-6px) scale(1.04); }
+
+/* ============ Sana's world (same sizes as Kahin's) ============ */
+/* her face picture (285x406) is taller than Kahin's (419x420): narrower so the head looks about as big */
+.kw-girl-sana { width: 38%; max-width: 166px; }
+/* the two Fluttershys at the same height as each other (and about as tall as Kahin's ponies) */
+#sworld .kw-left { width: 29%; max-width: 134px; }
+#sworld .kw-right { width: 23.7%; max-width: 109px; }
+/* the title printed on the little Uncle Cool cover (like No Home) */
+.mini-uc b {
+  position: absolute; left: 0; right: 0; top: 7%; text-align: center;
+  font-weight: 700; font-size: clamp(.58rem, 1.3vw, .76rem); letter-spacing: .12em; color: #fff4dc;
+  text-shadow: 0 1px 0 #2a2230, 0 0 6px rgba(20, 16, 30, .9);
+}
+/* Uncle Cool's cover is light on top (white page): its title is written in dark ink instead of on a dark band */
+.mini-uc b { color: #2a2230; text-shadow: 0 1px 0 #fff, 0 0 6px rgba(255, 255, 255, .95); }
+.bk-title-light { background: none; }
+.bk-title-light b { color: #2a2230; text-shadow: 0 2px 0 #fff, 0 0 18px rgba(233, 165, 182, .55); }
+.bk-title-light span { color: #6f4a47; border-color: rgba(111, 74, 71, .6); }
+/* Uncle Cool title on one line, in the white space above his head (small book and opened cover) */
+.mini-uc b { top: 5%; white-space: nowrap; font-size: clamp(.46rem, 1vw, .56rem); letter-spacing: .08em; }
+.bk-title-light { padding-top: 5%; }
+.bk-title-light b { white-space: nowrap; font-size: clamp(1.3rem, 6vw, 2.2rem); }
+.bk-title-light span { margin-top: 6px; font-size: .72rem; padding: 2px 10px; }
+/* the title printed on the little Olgami cover */
+.mini-og b {
+  position: absolute; left: 0; right: 0; top: 6%; text-align: center; white-space: nowrap;
+  font-weight: 700; font-size: clamp(.56rem, 1.25vw, .74rem); letter-spacing: .14em; color: #fff4dc;
+  text-shadow: 0 1px 0 #10142a, 0 0 6px rgba(10, 12, 30, .95);
+}
+/* Rita's jumping Pinkie really hops: up, a little tilt, and a soft squash when she lands */
+#rworld .kw-left { animation: none; }
+#rworld .kw-left img { transform-origin: 50% 100%; animation: pinkie-hop 1.5s ease-in-out infinite; }
+@keyframes pinkie-hop {
+  0%, 100% { transform: translateY(0) rotate(0) scale(1); }
+  12% { transform: translateY(0) scale(1.06, .92); }
+  40% { transform: translateY(-22px) rotate(-6deg) scale(.98, 1.03); }
+  60% { transform: translateY(-16px) rotate(-3deg); }
+  80% { transform: translateY(0) rotate(0) scale(1.05, .94); }
+  90% { transform: translateY(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) { #rworld .kw-left img { animation: none; } }
+/* phone turned sideways: Rita's picture is tall, so her stage needs a bit more height to keep the ponies
+   off her hair (on computers 52vh is already taller, so nothing changes there) */
+@media (min-width: 521px) { #rworld .kw-stage { height: clamp(390px, 52vh, 430px); } }

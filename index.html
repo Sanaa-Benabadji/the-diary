@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>the diary ♡</title>
+<link rel="icon" href="img/st/st-29.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600&family=Fredoka:wght@400;500;600;700&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="worlds.css">
+</head>
+<body>
+
+<!-- the Yaz (ⵣ), drawn once and used with <use href="#yaz"> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="yaz" viewBox="0 0 40 60">
+      <g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 3 V57"/>
+        <path d="M6 5 C6 19 12 24 20 24 C28 24 34 19 34 5"/>
+        <path d="M6 55 C6 41 12 36 20 36 C28 36 34 41 34 55"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- background: pink plaid + soft light, floating hearts, stickers on the sides -->
+<div class="bg" aria-hidden="true"></div>
+<div class="fx" id="fx" aria-hidden="true"></div>
+<div class="stickers" id="stickers" aria-hidden="true"></div>
+
+<main>
+  <!-- ============ front page ============ -->
+  <section class="view is-on" id="home" aria-label="kahin, rita and sana">
+    <div class="patch">
+      <div class="ribbon"><span>made in heaven</span></div>
+      <div class="girls">
+        <button class="girl" type="button" data-girl="kahin" style="--d:0s">
+          <span class="girl-bob"><img src="img/kahin.png" alt="kahin" width="419" height="420"></span>
+          <span class="girl-shadow" aria-hidden="true"></span>
+          <span class="girl-name">kahin</span>
+        </button>
+        <button class="girl" type="button" data-girl="rita" style="--d:-.9s">
+          <span class="girl-bob"><img src="img/rita.png" alt="rita" width="264" height="391"></span>
+          <span class="girl-shadow" aria-hidden="true"></span>
+          <span class="girl-name">rita</span>
+        </button>
+        <button class="girl" type="button" data-girl="sana" style="--d:-1.8s">
+          <span class="girl-bob"><img src="img/sana.png" alt="sana" width="285" height="406"></span>
+          <span class="girl-shadow" aria-hidden="true"></span>
+          <span class="girl-name">sana</span>
+        </button>
+      </div>
+      <p class="love">with love, always</p>
+      <p class="tap">tap one of us ♡</p>
+    </div>
+  </section>
+
+  <!-- ============ one girl's page ============ -->
+  <section class="view" id="girl" aria-label="" hidden>
+    <div class="patch patch-girl">
+      <button class="back" id="back" type="button">‹ back</button>
+      <div class="big-bob"><img id="girl-img" src="img/kahin.png" alt=""></div>
+      <h1 class="girl-title" id="girl-title">kahin</h1>
+      <p class="girl-sub" id="girl-sub">her little page is coming soon ♡</p>
+
+    </div>
+  </section>
+
+  <!-- ============ Kahin's own world (same look as the front page: plaid, cream patches, stitches) ============ -->
+  <section class="view view-world" id="kworld" aria-label="Kahin's world" hidden>
+    <button class="back kw-back world-back" type="button">‹ home</button>
+
+    <div class="kw-grid">
+      <div class="kw-hero patch">
+        <div class="ribbon"><span>Kahin's world</span></div>
+        <div class="kw-stage">
+          <button class="kw-girl" type="button" data-hearts="7" aria-label="Kahin, tap her">
+            <img src="img/kahin.png" alt="Kahin" width="419" height="420">
+          </button>
+          <button class="kw-pony kw-left" type="button" data-hearts="6" aria-label="Applejack, tap her">
+            <img src="img/kahin/aj-stand.png" alt="Applejack" width="406" height="520">
+          </button>
+          <button class="kw-pony kw-right" type="button" data-hearts="6" aria-label="Rainbow Dash, tap her">
+            <img src="img/kahin/dash-dab.png" alt="Rainbow Dash" width="492" height="560">
+          </button>
+        </div>
+        <p class="kw-tags"><span>20</span><span>ESTP</span><span><i class="amber-dot"></i>amber eyes</span><span><svg class="yaz yaz-tag" viewBox="0 0 40 60" aria-hidden="true"><use href="#yaz"/></svg>Kabyle</span></p>
+        <p class="love kw-love">beauty and brain</p>
+      </div>
+
+      <div class="kw-cards">
+        <article class="kc">
+          <h2 class="kc-title">about me</h2>
+          <dl class="kc-list">
+            <div><dt>name</dt><dd>Kahin</dd></div>
+            <div><dt>age</dt><dd>20</dd></div>
+            <div><dt>eyes</dt><dd><i class="amber-dot"></i>amber</dd></div>
+            <div><dt>personality</dt><dd>ESTP · the entrepreneur ⚡</dd></div>
+            <div><dt>she's</dt><dd>an artist 🎨 &amp; a fashionista 👗</dd></div>
+            <div><dt>roots</dt><dd><svg class="yaz yaz-inline" viewBox="0 0 40 60" aria-hidden="true"><use href="#yaz"/></svg>Kabyle · Algerian</dd></div>
+          </dl>
+        </article>
+
+        <article class="kc kc-bday">
+          <h2 class="kc-title">birthday</h2>
+          <p class="bday-date">May 24 <span aria-hidden="true">🎂</span></p>
+          <p class="bday-note">👑 same birthday as Queen Victoria</p>
+          <div class="bday" data-month="5" data-day="24">
+            <div class="cd" role="timer" aria-live="off" aria-label="countdown to Kahin's birthday">
+              <div class="cd-box"><b class="cd-d">0</b><span>days</span></div>
+              <div class="cd-box"><b class="cd-h">00</b><span>hours</span></div>
+              <div class="cd-box"><b class="cd-m">00</b><span>min</span></div>
+              <div class="cd-box"><b class="cd-s">00</b><span>sec</span></div>
+            </div>
+            <p class="bday-count" hidden>it's TODAY! happy birthday Kahin 🎉</p>
+          </div>
+        </article>
+
+        <article class="kc">
+          <h2 class="kc-title">she loves</h2>
+          <ul class="chips">
+            <li>🐦 birds</li><li>🐶 dogs</li><li>🐱 cats</li><li>🌊 the sea</li><li>📜 history</li>
+          </ul>
+        </article>
+
+        <article class="kc">
+          <h2 class="kc-title">hobbies</h2>
+          <ul class="chips">
+            <li>💅 nails</li>
+            <li><button class="chip-btn" type="button"><span class="ball">🏀</span> basketball</button></li>
+            <li>🏋️‍♀️ gym</li>
+            <li>🎨 drawing</li>
+            <li>👗 fashion</li>
+          </ul>
+        </article>
+
+        <article class="kc kc-wide">
+          <h2 class="kc-title">she speaks</h2>
+          <ul class="chips langs-row">
+            <li>English</li><li>French</li><li>Arabic</li><li>German</li><li>Spanish</li>
+          </ul>
+        </article>
+
+        <article class="kc kc-wide">
+          <h2 class="kc-title">obsessed with</h2>
+          <div class="fav-row">
+            <button class="fav" id="fav-idv" type="button" aria-label="her favourite Identity V character, tap it">
+              <span class="fav-pic"><img src="img/kahin/idv.png" alt="" width="468" height="520"></span>
+              <span class="fav-name">Identity V</span>
+            </button>
+            <button class="fav" data-book="bl" type="button" aria-label="Blue Lock manga, tap to read" aria-haspopup="dialog">
+              <span class="fav-pic"><span class="mini-book"><img src="img/kahin/bl-cover.jpg" alt="" width="513" height="767"></span></span>
+              <span class="fav-name">Blue Lock <small>tap to read 📖</small></span>
+            </button>
+            <button class="fav" data-book="nh" type="button" aria-label="No Home manhwa, tap to read" aria-haspopup="dialog">
+              <span class="fav-pic"><span class="mini-book mini-nh"><img src="img/kahin/nh-cover.jpg" alt="" width="735" height="919"><b>NO HOME</b></span></span>
+              <span class="fav-name">No Home <small>tap to read 📖</small></span>
+            </button>
+            <button class="fav" id="fav-usagi" type="button" aria-label="Usagi from Chiikawa, tap her">
+              <span class="fav-pic"><img src="img/kahin/usagi.png" alt="" width="420" height="404"></span>
+              <span class="fav-name">Usagi <small>Chiikawa</small></span>
+            </button>
+          </div>
+          <p class="kc-hint">tap them ♡</p>
+        </article>
+
+        <article class="kc kc-wide kc-cat">
+          <h2 class="kc-title">Shasha Morgana 🐾</h2>
+          <div class="cat-info">
+            <dl class="kc-list">
+              <div><dt>full name</dt><dd>Shasha Morgana</dd></div>
+              <div><dt>birthday</dt><dd>March 15 🎂</dd></div>
+              <div><dt>age</dt><dd id="shasha-age"></dd></div>
+            </dl>
+            <div class="bday" data-month="3" data-day="15" data-born="2026">
+              <p class="cd-label" id="shasha-next"></p>
+              <div class="cd" role="timer" aria-live="off" aria-label="countdown to Shasha's birthday">
+                <div class="cd-box"><b class="cd-d">0</b><span>days</span></div>
+                <div class="cd-box"><b class="cd-h">00</b><span>hours</span></div>
+                <div class="cd-box"><b class="cd-m">00</b><span>min</span></div>
+                <div class="cd-box"><b class="cd-s">00</b><span>sec</span></div>
+              </div>
+              <p class="bday-count" hidden>it's Shasha's birthday today! 🎉🐾</p>
+            </div>
+          </div>
+          <div class="cat-row">
+            <button class="polaroid shasha-pic" type="button" aria-label="tiny Shasha, tap her">
+              <span class="tape" aria-hidden="true"></span>
+              <img src="img/kahin/shasha-1.jpg" alt="tiny Shasha curled up in a hand" width="720" height="900">
+              <span class="cap">tiny Shasha ♡</span>
+            </button>
+            <button class="polaroid shasha-pic" type="button" aria-label="sleepy Shasha, tap her">
+              <span class="tape" aria-hidden="true"></span>
+              <img src="img/kahin/shasha-2.jpg" alt="Shasha asleep with her yellow bell collar" width="720" height="900">
+              <span class="cap">sleepy Shasha 💤</span>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Rita's own world (same look as the front page) ============ -->
+  <section class="view view-world" id="rworld" aria-label="Rita's world" hidden>
+    <button class="back kw-back world-back" type="button">‹ home</button>
+
+    <div class="kw-grid">
+      <div class="kw-hero patch">
+        <div class="ribbon"><span>Rita's world</span></div>
+        <div class="kw-stage">
+          <button class="kw-girl kw-girl-tall" type="button" data-hearts="7" aria-label="Rita, tap her">
+            <img src="img/rita.png" alt="Rita" width="264" height="391">
+          </button>
+          <button class="kw-pony kw-left" type="button" data-hearts="6" aria-label="Pinkie Pie jumping, tap her">
+            <img src="img/rita/pinkie-jump.png" alt="Pinkie Pie jumping" width="435" height="459">
+          </button>
+          <button class="kw-pony kw-right" type="button" data-hearts="6" aria-label="Pinkie Pie with cake, tap her">
+            <img src="img/rita/pinkie-cake.png" alt="Pinkie Pie eating cake" width="560" height="356">
+          </button>
+        </div>
+        <p class="kw-tags"><span>18</span><span>ENFJ</span><span><i class="brown-dot"></i>brown eyes</span><span>Constantine</span></p>
+        <p class="love kw-love">a fallen angel</p>
+      </div>
+
+      <div class="kw-cards">
+        <article class="kc">
+          <h2 class="kc-title">about me</h2>
+          <dl class="kc-list">
+            <div><dt>name</dt><dd>Ritaj</dd></div>
+            <div><dt>age</dt><dd>18</dd></div>
+            <div><dt>eyes</dt><dd><i class="brown-dot"></i>brown</dd></div>
+            <div><dt>personality</dt><dd>ENFJ · the protagonist 🌟</dd></div>
+            <div><dt>she's</dt><dd>an artist 🎨 &amp; a translator 📝</dd></div>
+            <div><dt>roots</dt><dd>Constantine · Algerian</dd></div>
+          </dl>
+        </article>
+
+        <article class="kc kc-bday">
+          <h2 class="kc-title">birthday</h2>
+          <p class="bday-date">July 13 <span aria-hidden="true">🎂</span></p>
+          <p class="bday-note">🍰 the sweetest girl gets the sweetest day</p>
+          <div class="bday" data-month="7" data-day="13">
+            <div class="cd" role="timer" aria-live="off" aria-label="countdown to Rita's birthday">
+              <div class="cd-box"><b class="cd-d">0</b><span>days</span></div>
+              <div class="cd-box"><b class="cd-h">00</b><span>hours</span></div>
+              <div class="cd-box"><b class="cd-m">00</b><span>min</span></div>
+              <div class="cd-box"><b class="cd-s">00</b><span>sec</span></div>
+            </div>
+            <p class="bday-count" hidden>it's TODAY! happy birthday Rita 🎉</p>
+          </div>
+        </article>
+
+        <article class="kc">
+          <h2 class="kc-title">she loves</h2>
+          <ul class="chips">
+            <li>⛏️ Minecraft</li><li>🐱 cats</li><li>💎 jewelry</li><li>🌊 the sea</li><li>🌹 roses</li><li>🎬 movies</li>
+          </ul>
+        </article>
+
+        <article class="kc">
+          <h2 class="kc-title">hobbies</h2>
+          <ul class="chips">
+            <li>📖 manhwa</li>
+            <li>📚 books</li>
+            <li><button class="chip-btn" type="button"><span class="ball">🏀</span> basketball</button></li>
+            <li>🏋️‍♀️ gym</li>
+            <li>🎨 drawing</li>
+            <li>🎮 Roblox</li>
+            <li>🧁 baking sweets</li>
+          </ul>
+        </article>
+
+        <article class="kc kc-wide">
+          <h2 class="kc-title">she speaks</h2>
+          <ul class="chips langs-row" style="--n:4">
+            <li>Arabic</li><li>French</li><li>English</li><li>Spanish</li>
+          </ul>
+        </article>
+
+        <article class="kc kc-wide">
+          <h2 class="kc-title">obsessed with</h2>
+          <div class="fav-row">
+            <button class="fav" type="button" data-hearts="6" aria-label="her plushie, tap it">
+              <span class="fav-pic"><img src="img/rita/plush.png" alt="a little plushie" width="213" height="300"></span>
+              <span class="fav-name">her plushie <small>tap for a hug 🧸</small></span>
+            </button>
+            <button class="fav" data-book="hm" type="button" aria-label="How to Make My Husband Stay by My Side, tap to read" aria-haspopup="dialog">
+              <span class="fav-pic"><span class="mini-book mini-hm"><img src="img/rita/hm-cover.jpg" alt="" width="723" height="823"><b>How to Make My Husband Stay by My Side</b></span></span>
+              <span class="fav-name">How to Make My Husband Stay by My Side <small>tap to read 📖</small></span>
+            </button>
+            <button class="fav" type="button" data-pop="🍿 🎬 ✨ 🍿" data-cycle="img/rita/mv-2.jpg img/rita/mv-1.jpg img/rita/mv-3.jpg img/rita/mv-4.jpg" aria-label="movies and series, tap for the next one">
+              <span class="fav-pic"><span class="mini-poster"><img src="img/rita/mv-2.jpg" alt="one of her movies and series" width="360" height="538"></span></span>
+              <span class="fav-name">movies &amp; series <small>tap for the next one 🍿</small></span>
+            </button>
+            <button class="fav" type="button" data-hearts="6" aria-label="Yandere Simulator, tap it">
+              <span class="fav-pic"><img src="img/rita/game-head.png" alt="a character from Yandere Simulator" width="406" height="420"></span>
+              <span class="fav-name">Yandere Simulator</span>
+            </button>
+          </div>
+          <p class="kc-hint">tap them ♡</p>
+        </article>
+
+        <article class="kc kc-wide kc-cat">
+          <h2 class="kc-title">Snowy &amp; Simba 🐾</h2>
+          <div class="cat-info">
+            <dl class="kc-list">
+              <div><dt>names</dt><dd>Snowy &amp; Simba</dd></div>
+              <div><dt>coats</dt><dd>grey tabby &amp; solid grey</dd></div>
+              <div><dt>type</dt><dd>fluffy house cats 🐾</dd></div>
+            </dl>
+            <div>
+              <p class="cd-label">cat facts ✨</p>
+              <div class="cd" style="grid-template-columns: repeat(3, 1fr)">
+                <div class="cd-box"><b>32</b><span>ear muscles</span></div>
+                <div class="cd-box"><b>M</b><span>tabby mark</span></div>
+                <div class="cd-box"><b>blue</b><span>= grey fur</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="cat-row">
+            <button class="polaroid polaroid-square shasha-pic" type="button" aria-label="kitty with a blue bell, tap her">
+              <span class="tape" aria-hidden="true"></span>
+              <img src="img/rita/cat-2.jpg" alt="one of her cats with a blue bell" width="520" height="520">
+              <span class="cap">the serious look ♡</span>
+            </button>
+            <button class="polaroid polaroid-square shasha-pic" type="button" aria-label="Snowy and Simba together, tap them">
+              <span class="tape" aria-hidden="true"></span>
+              <img src="img/rita/cat-4.jpg" alt="Snowy and Simba together" width="520" height="520">
+              <span class="cap">together ♡</span>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Sana's own world (same look and sizes as Kahin's) ============ -->
+  <section class="view view-world" id="sworld" aria-label="Sana's world" hidden>
+    <button class="back kw-back world-back" type="button">‹ home</button>
+
+    <div class="kw-grid">
+      <div class="kw-hero patch">
+        <div class="ribbon"><span>Sana's world</span></div>
+        <div class="kw-stage">
+          <button class="kw-girl kw-girl-sana" type="button" data-hearts="7" aria-label="Sana, tap her">
+            <img src="img/sana.png" alt="Sana" width="285" height="406">
+          </button>
+          <button class="kw-pony kw-left" type="button" data-hearts="6" aria-label="Fluttershy and Angel, tap them">
+            <img src="img/sana/flutter-stand.png" alt="Fluttershy with Angel" width="520" height="445">
+          </button>
+          <button class="kw-pony kw-right" type="button" data-hearts="6" aria-label="Fluttershy hugging Angel, tap them">
+            <img src="img/sana/flutter-hug.png" alt="Fluttershy hugging Angel" width="404" height="427">
+          </button>
+        </div>
+        <p class="kw-tags"><span>20</span><span>ISFJ</span><span><i class="brown-dot"></i>brown eyes</span><span>Tlemcen</span></p>
+        <p class="love kw-love">moon child</p>
+      </div>
+
+      <div class="kw-cards">
+        <article class="kc">
+          <h2 class="kc-title">about me</h2>
+          <dl class="kc-list">
+            <div><dt>name</dt><dd>Sanaa</dd></div>
+            <div><dt>age</dt><dd>20</dd></div>
+            <div><dt>eyes</dt><dd><i class="brown-dot"></i>brown</dd></div>
+            <div><dt>personality</dt><dd>ISFJ · the defender 🛡️</dd></div>
+            <div><dt>she's</dt><dd>a programmer 💻 &amp; a gamer 🎮</dd></div>
+            <div><dt>roots</dt><dd>Tlemcen · Algerian</dd></div>
+          </dl>
+        </article>
+
+        <article class="kc kc-bday">
+          <h2 class="kc-title">birthday</h2>
+          <p class="bday-date">May 3 <span aria-hidden="true">🎂</span></p>
+          <p class="bday-note">same birthday as the writer Machiavelli</p>
+          <div class="bday" data-month="5" data-day="3">
+            <div class="cd" role="timer" aria-live="off" aria-label="countdown to Sana's birthday">
+              <div class="cd-box"><b class="cd-d">0</b><span>days</span></div>
+              <div class="cd-box"><b class="cd-h">00</b><span>hours</span></div>
+              <div class="cd-box"><b class="cd-m">00</b><span>min</span></div>
+              <div class="cd-box"><b class="cd-s">00</b><span>sec</span></div>
+            </div>
+            <p class="bday-count" hidden>it's TODAY! happy birthday Sana 🎉</p>
+          </div>
+        </article>
+
+        <article class="kc">
+          <h2 class="kc-title">she loves</h2>
+          <ul class="chips">
+            <li>🐱 cats</li><li>📜 history</li><li>📚 books</li><li>🌍 culture</li><li>🧠 psychology</li>
+          </ul>
+        </article>
+
+        <article class="kc">
+          <h2 class="kc-title">hobbies</h2>
+          <ul class="chips">
+            <li>🎨 drawing</li>
+            <li>🍳 cooking</li>
+            <li>🏋️‍♀️ working out</li>
+            <li>🧺 organizing</li>
+          </ul>
+        </article>
+
+        <article class="kc kc-wide">
+          <h2 class="kc-title">she speaks</h2>
+          <ul class="chips langs-row" style="--n:3">
+            <li>Arabic</li><li>English</li><li>French</li>
+          </ul>
+        </article>
+
+        <article class="kc kc-wide">
+          <h2 class="kc-title">obsessed with</h2>
+          <div class="fav-row">
+            <button class="fav" type="button" data-hearts="6" aria-label="Edward Scissorhands, tap him">
+              <span class="fav-pic"><img src="img/sana/edward.png" alt="" width="408" height="520"></span>
+              <span class="fav-name">Edward Scissorhands</span>
+            </button>
+            <button class="fav" data-book="og" type="button" aria-label="Olgami manhwa, tap to read" aria-haspopup="dialog">
+              <span class="fav-pic"><span class="mini-book mini-og"><img src="img/sana/og-cover.jpg" alt="" width="560" height="837"><b>OLGAMI</b></span></span>
+              <span class="fav-name">Olgami <small>tap to read 📖</small></span>
+            </button>
+            <button class="fav" type="button" data-pop="🍿 🎬 ✨ 🍿" data-cycle="img/sana/mv-6.jpg img/sana/mv-1.jpg img/sana/mv-2.jpg img/sana/mv-3.jpg img/sana/mv-4.jpg img/sana/mv-5.jpg img/sana/mv-7.jpg img/sana/mv-8.jpg img/sana/mv-9.jpg" aria-label="movies and series, tap for the next one">
+              <span class="fav-pic"><span class="mini-poster"><img src="img/sana/mv-6.jpg" alt="one of her movies and series" width="360" height="538"></span></span>
+              <span class="fav-name">movies &amp; series <small>tap for the next one 🍿</small></span>
+            </button>
+            <button class="fav" type="button" data-hearts="6" aria-label="Berlioz, tap him">
+              <span class="fav-pic"><img src="img/sana/berlioz.png" alt="" width="440" height="502"></span>
+              <span class="fav-name">Berlioz</span>
+            </button>
+          </div>
+          <p class="kc-hint">tap them ♡</p>
+        </article>
+
+        <article class="kc kc-wide kc-cat">
+          <h2 class="kc-title">Bimo 🐾</h2>
+          <div class="cat-info">
+            <dl class="kc-list">
+              <div><dt>name</dt><dd>Bimo</dd></div>
+              <div><dt>also called</dt><dd>Mardan · Bagheera · Puma</dd></div>
+              <div><dt>birthday</dt><dd>October 10 🎂</dd></div>
+            </dl>
+            <div class="bday" data-month="10" data-day="10">
+              <p class="cd-label">his birthday in</p>
+              <div class="cd" role="timer" aria-live="off" aria-label="countdown to Bimo's birthday">
+                <div class="cd-box"><b class="cd-d">0</b><span>days</span></div>
+                <div class="cd-box"><b class="cd-h">00</b><span>hours</span></div>
+                <div class="cd-box"><b class="cd-m">00</b><span>min</span></div>
+                <div class="cd-box"><b class="cd-s">00</b><span>sec</span></div>
+              </div>
+              <p class="bday-count" hidden>it's Bimo's birthday today! 🎉🐾</p>
+            </div>
+          </div>
+          <div class="cat-row">
+            <button class="polaroid shasha-pic" type="button" aria-label="Bimo with his tongue out, tap him">
+              <span class="tape" aria-hidden="true"></span>
+              <img src="img/sana/bimo-1.jpg" alt="Bimo with his tongue out, next to a big plush cat" width="720" height="900">
+              <span class="cap">Bimo being silly 😛</span>
+            </button>
+            <button class="polaroid shasha-pic" type="button" aria-label="Bimo from behind with his long tail, tap him">
+              <span class="tape" aria-hidden="true"></span>
+              <img src="img/sana/bimo-2.jpg" alt="Bimo from behind with his long tail" width="720" height="900">
+              <span class="cap">Bimo on patrol 🐾</span>
+            </button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- the Blue Lock mini book, opened -->
+<!-- the little books, opened (the pages are filled in by kahin.js: Blue Lock or No Home) -->
+<div class="bk" id="bk" role="dialog" aria-modal="true" aria-label="book" hidden>
+  <div class="bk-backdrop" id="bk-backdrop"></div>
+  <div class="bk-wrap">
+    <div class="bk-book" id="bk-book"></div>
+    <div class="bk-bar">
+      <button class="bk-btn" id="bk-prev" type="button" aria-label="Previous page">‹</button>
+      <span class="bk-count" id="bk-count">1 / 6</span>
+      <button class="bk-btn" id="bk-next" type="button" aria-label="Next page">›</button>
+      <button class="bk-btn bk-close" id="bk-close" type="button" aria-label="Close the book">×</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ music corner ============ -->
+<aside class="music" id="music" aria-label="music">
+  <div class="m-list" id="m-list" hidden>
+    <div class="m-list-head"><span>playlist ♪</span><span class="m-list-n" id="m-list-n"></span></div>
+    <ol class="m-list-items" id="m-list-items"></ol>
+  </div>
+  <div class="m-hint" id="m-hint">tap anywhere for music ♪</div>
+  <div class="m-card">
+    <div class="m-info">
+      <div class="m-top">
+        <span class="m-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        <span class="m-label" id="m-label">ready</span>
+      </div>
+      <div class="m-title-wrap"><p class="m-title" id="m-title">…</p></div>
+      <p class="m-artist" id="m-artist"></p>
+    </div>
+    <button class="m-btn" id="m-toggle" type="button" aria-label="Play">
+      <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+      <svg class="i-stop" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="6.5" width="11" height="11" rx="2"/></svg>
+    </button>
+    <button class="m-btn m-btn-soft" id="m-list-btn" type="button" aria-label="Playlist" aria-expanded="false" aria-controls="m-list">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h11M4 12h11M4 17h7" stroke-width="2.2" stroke-linecap="round"/><path d="M18 9.5v8.2a2 2 0 1 1-1.6-1.95V8l4-1.2v2z" stroke="none"/></svg>
+    </button>
+  </div>
+  <button class="m-sticker" id="m-sticker" type="button" aria-label="Next song">
+    <img src="img/sticker.png" alt="" width="360" height="360">
+  </button>
+</aside>
+
+<!-- the YouTube player only gives the sound: it is kept out of sight -->
+<div class="yt-host" id="yt-host" aria-hidden="true"><div id="yt"></div></div>
+
+<script src="music.js"></script>
+<script src="app.js"></script>
+<script src="worlds.js"></script>
+</body>
+</html>
