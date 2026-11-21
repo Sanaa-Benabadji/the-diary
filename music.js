@@ -133,14 +133,24 @@
       },
     });
   }
+  // The YouTube player is heavy: it is loaded a moment after the page and its pictures have finished, so the
+  // page shows quickly on phones. It is loaded right away if someone wants music before that.
   window.onYouTubeIframeAPIReady = create;
-  const api = document.createElement("script");
-  api.src = "https://www.youtube.com/iframe_api";
-  api.async = true;
-  document.head.appendChild(api);
+  let apiLoading = false;
+  function loadApi() {
+    if (apiLoading) return;
+    apiLoading = true;
+    const api = document.createElement("script");
+    api.src = "https://www.youtube.com/iframe_api";
+    api.async = true;
+    document.head.appendChild(api);
+  }
+  if (document.readyState === "complete") setTimeout(loadApi, 1200);
+  else window.addEventListener("load", () => setTimeout(loadApi, 1200));
 
   function playSong() {
     wantPlay = true;
+    loadApi();
     if (!ready) return;
     yt.loadVideoById(current().id);
     // iPhone/iPad only let the sound start from a tap on the player itself:

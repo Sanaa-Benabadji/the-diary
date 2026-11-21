@@ -140,19 +140,26 @@
     parT.y = (e.clientY / window.innerHeight - 0.5) * 2;
     lastMove = performance.now();
   });
-  function tick(now) {
-    requestAnimationFrame(tick);
-    if (reduceMotion) return;
-    if (now - lastMove > 5000) {
-      parT.x = Math.sin(now / 4000) * 0.4;
-      parT.y = Math.sin(now / 5200) * 0.3;
-    }
-    par.x += (parT.x - par.x) * 0.05;
-    par.y += (parT.y - par.y) * 0.05;
+  // Changing --px/--py on the page restyles everything, so: never on phones/tablets (no mouse there, and they
+  // are the slowest), never with reduced motion, and on computers only while the stickers are still gliding.
+  const touchOnly = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+  let running = false;
+  function tick() {
+    par.x += (parT.x - par.x) * 0.08;
+    par.y += (parT.y - par.y) * 0.08;
     document.documentElement.style.setProperty("--px", par.x.toFixed(3));
     document.documentElement.style.setProperty("--py", par.y.toFixed(3));
+    if (Math.abs(parT.x - par.x) > 0.002 || Math.abs(parT.y - par.y) > 0.002) requestAnimationFrame(tick);
+    else running = false;
   }
-  requestAnimationFrame(tick);
+  if (!touchOnly && !reduceMotion) {
+    window.addEventListener("pointermove", () => {
+      if (!running && !document.hidden) {
+        running = true;
+        requestAnimationFrame(tick);
+      }
+    });
+  }
 
   /* ---------- pages: #kahin, #rita, #sana ---------- */
   const GIRLS = {
@@ -180,6 +187,11 @@
     Object.values(WORLDS).forEach((x) => (x.el.hidden = x !== w));
     useStickers(w ? w.stickers : "home");
     if (w) {
+      // a world's pictures only get their address now, so opening the site doesn't download all three worlds
+      w.el.querySelectorAll("img[data-src]").forEach((img) => {
+        img.src = img.dataset.src;
+        img.removeAttribute("data-src");
+      });
       home.hidden = true;
       girlView.hidden = true;
       restart(w.el);

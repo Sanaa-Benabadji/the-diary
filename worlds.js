@@ -118,7 +118,20 @@
     const img = pics ? btn.querySelector(".fav-pic img") : null;
     const frame = pics ? img.parentElement : btn.querySelector(".fav-pic");
     const count = pics ? pics.length : items.length;
-    if (pics) pics.forEach((src) => (new Image().src = src)); // load them early so the change is instant
+    // only the NEXT picture is fetched ahead (once the tile is on screen, then after every tap), so opening the
+    // site doesn't download every poster at once
+    const preload = (k) => {
+      if (pics) new Image().src = pics[k % pics.length];
+    };
+    if (pics && "IntersectionObserver" in window) {
+      const io = new IntersectionObserver((es) => {
+        if (es.some((e) => e.isIntersecting)) {
+          preload(1);
+          io.disconnect();
+        }
+      });
+      io.observe(btn);
+    }
     let i = 0;
     btn.addEventListener("click", () => {
       i = (i + 1) % count;
@@ -131,7 +144,10 @@
         );
       }
       setTimeout(() => {
-        if (pics) img.src = pics[i];
+        if (pics) {
+          img.src = pics[i];
+          preload(i + 1);
+        }
         else {
           items.forEach((el, k) => (el.hidden = k !== i));
           // a piece can carry its own name (games: Yandere Simulator ↔ Minecraft)
