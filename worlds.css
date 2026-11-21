@@ -328,4 +328,4 @@ button.fav:hover .mini-polaroid, button.fav:hover .mini-poster { transform: rota
    off her hair (on computers 52vh is already taller, so nothing changes there) */
 @media (min-width: 521px) { #rworld .kw-stage { height: clamp(390px, 52vh, 430px); } }
 /* Kahin's new face (516x600) is a little taller than the old square one: a bit narrower so the head stays the same size */
-#kworld .kw-girl { width: 44%; max-width: 194px; }
+#kworld .kw-girl { width: 42%; max-width: 186px; }

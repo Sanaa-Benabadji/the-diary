@@ -308,3 +308,8 @@ main .view > .kw-bg { pointer-events: none; }
 @media (prefers-reduced-motion: reduce) {
   .m-sticker, .music.is-playing .m-sticker, .m-title.is-long, .music.is-playing .m-eq i { animation: none; }
 }
+
+/* Kahin's face picture is wider than Rita's and Sana's (413x480 vs ~0.7 wide): at the same height it looked
+   bigger, so it is a touch smaller (and kept on the same baseline) so the three faces look the same size */
+.girl[data-girl="kahin"] .girl-bob img { height: 90%; margin-top: 10%; }
+#girl[data-girl="kahin"] .big-bob img { height: 90%; margin-top: 5%; }
