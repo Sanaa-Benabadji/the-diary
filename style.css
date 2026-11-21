@@ -132,7 +132,6 @@ main .view > .kw-bg { pointer-events: none; }
   transition: transform .35s cubic-bezier(.2, 1.6, .4, 1);
   transform-origin: 50% 85%;
 }
-.girl[data-girl="kahin"] .girl-bob img { height: 92%; margin-top: 4%; }
 .girl:hover .girl-bob img, .girl:focus-visible .girl-bob img { transform: scale(1.08) rotate(-4deg); }
 .girl:nth-child(2):hover .girl-bob img { transform: scale(1.08) rotate(4deg); }
 .girl.is-picked .girl-bob img { animation: picked .45s ease; }
